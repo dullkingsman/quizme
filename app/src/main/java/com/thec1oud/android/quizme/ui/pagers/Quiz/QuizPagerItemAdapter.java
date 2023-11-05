@@ -62,6 +62,8 @@ public class QuizPagerItemAdapter extends RecyclerView.Adapter<QuizPagerItemView
 
 		holder.prompt.setText(question.getPrompt());
 
+		this.cleanHolderUI(holder, position);
+
 		for(int i = 0; i < 4; i++) {
 			String id = question.getChoices().get(i).getId();
 			String value = question.getChoices().get(i).getValue();
@@ -79,21 +81,6 @@ public class QuizPagerItemAdapter extends RecyclerView.Adapter<QuizPagerItemView
 
 		this.updateBackButtonUi(holder, position > 0);
 
-		this.updateNextButtonUi(
-			holder,
-			holder.getGivenAnswer() == null
-				? 0
-				: position == this.questions.size() - 1 &&
-					holder.getAnswerHasBeenChecked() &&
-					this.numberOfAnsweredQuestions != this.questions.size()
-					? 4: position == this.questions.size() - 1 &&
-					holder.getAnswerHasBeenChecked()
-					? 3
-					: holder.getAnswerHasBeenChecked()
-					? 2
-					: 1
-		);
-
 		holder.navActions[0].setOnClickListener(view -> {
 			this.pagingCallback.onPageChange(position, false);
 		});
@@ -102,7 +89,7 @@ public class QuizPagerItemAdapter extends RecyclerView.Adapter<QuizPagerItemView
 			if(holder.getGivenAnswer() != null) {
 				if (holder.getAnswerHasBeenChecked()) this.pagingCallback.onPageChange(position, true);
 				else {
-					this.setChoiceBackgrounds(holder, position);
+					this.setChoiceBackgrounds(holder, position, false);
 
 					holder.setAnswerHasBeenChecked(true);
 
@@ -155,8 +142,8 @@ public class QuizPagerItemAdapter extends RecyclerView.Adapter<QuizPagerItemView
 		holder.navActions[1].setFocusable(state != 0);
 	}
 
-	private void setChoiceBackgrounds(@NonNull QuizPagerItemViewHolder holder, int questionId) {
-		if (holder.getGivenAnswer() != null) {
+	private void setChoiceBackgrounds(@NonNull QuizPagerItemViewHolder holder, int questionId, boolean clean) {
+		if (holder.getGivenAnswer() != null  || clean) {
 			Context context = holder.itemView.getContext();
 
 			int givenAnswerPosition = -1;
@@ -171,7 +158,11 @@ public class QuizPagerItemAdapter extends RecyclerView.Adapter<QuizPagerItemView
 				if (Objects.equals(choice.getId(), this.questions.get(questionId).getAnswer()))
 					correctAnswerPosition = counter;
 
-				if(counter == givenAnswerPosition || counter == correctAnswerPosition)
+				if (clean)
+					holder.choices[counter].setBackground(
+						AppCompatResources.getDrawable(context, R.drawable.transparent_background)
+					);
+				else if(counter == givenAnswerPosition || counter == correctAnswerPosition)
 					holder.choices[counter].setBackground(
 						counter == correctAnswerPosition
 							? AppCompatResources.getDrawable(context, R.drawable.choice_success)
@@ -181,5 +172,11 @@ public class QuizPagerItemAdapter extends RecyclerView.Adapter<QuizPagerItemView
 				counter += 1;
 			}
 		}
+	}
+
+	private void cleanHolderUI(@NonNull QuizPagerItemViewHolder holder, int position) {
+		this.setChoiceBackgrounds(holder, position, true);
+		holder.choicesContainer.clearCheck();
+		this.updateNextButtonUi(holder, 0);
 	}
 }

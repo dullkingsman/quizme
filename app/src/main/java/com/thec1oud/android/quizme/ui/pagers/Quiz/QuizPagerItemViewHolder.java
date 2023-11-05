@@ -2,6 +2,7 @@ package com.thec1oud.android.quizme.ui.pagers.Quiz;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import com.thec1oud.android.quizme.R;
 
 public class QuizPagerItemViewHolder extends RecyclerView.ViewHolder {
 	TextView prompt;
+	RadioGroup choicesContainer;
 	TextView[] choices;
 	Button[] navActions;
 
@@ -22,6 +24,8 @@ public class QuizPagerItemViewHolder extends RecyclerView.ViewHolder {
 		super(itemView);
 
 		this.prompt = itemView.findViewById(R.id.prompt);
+
+		this.choicesContainer = itemView.findViewById(R.id.choices);
 
 		this.choices = new TextView[]{
 			itemView.findViewById(R.id.choice_a),
