@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Quizme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:colorBackground">@color/asphalt_dark</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <item name="QZColorBackground">@color/asphalt_dark</item>
+        <item name="QZColorOnBackground">@color/off_white</item>
+        <item name="QZColorSecondaryBackground">@color/asphalt</item>
+        <item name="QZColorOnSecondaryBackground">@color/off_white</item>
+        <item name="QZColorSurface">@color/asphalt_light</item>
+        <item name="QZColorOnSurface">@color/off_white</item>
+        <item name="QZColorPrimary">@color/dusty_teal</item>
+        <item name="QZColorOnPrimary">@color/white</item>
+        <item name="QZColorSecondary">@color/yellow_mustard_muted</item>
+        <item name="QZColorOnSecondary">@color/white</item>
+        <item name="QZColorAccent">@color/coral</item>
+        <item name="QZColorError">@color/red_muted</item>
+        <item name="QZColorWarn">@color/orange_yellow_muted</item>
+        <item name="QZColorInfo">@color/blue_muted</item>
+        <item name="QZColorSuccess">@color/green_muted</item>
+    </style>
+</resources>

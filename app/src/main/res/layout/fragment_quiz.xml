@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/draggable_view"
+        android:background="?attr/QZColorBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:id="@+id/top_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:gravity="center_vertical"
+            android:paddingVertical="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/quiz_fragment_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Navigates back!"
+                android:padding="4dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/baseline_arrow_back_24"
+                android:tooltipText="Back"
+                app:tint="?attr/QZColorOnBackground" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:clickable="false"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/quiz_pager_position_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/QZColorOnBackground"
+                android:text="1 / 20" />
+
+<!--            <ImageButton-->
+<!--                android:id="@+id/quiz_interaction_history_button"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="?android:attr/selectableItemBackgroundBorderless"-->
+<!--                android:contentDescription="Navigates to the question history page."-->
+<!--                android:padding="4dp"-->
+<!--                android:scaleType="centerInside"-->
+<!--                android:src="@drawable/baseline_history_24"-->
+<!--                android:tooltipText="Go to Question History"-->
+<!--                app:tint="?attr/QZColorOnBackground" />-->
+
+        </LinearLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/quiz_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_bar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="off_white">#FFD1D5DB</color>
+    <color name="asphalt_dark">#FF30313F</color>
+    <color name="asphalt">#363846</color>
+    <color name="asphalt_light">#FF444654</color>
+    <color name="red_muted">#FFD9534F</color>
+    <color name="orange_yellow_muted">#FFF0AD4E</color>
+    <color name="blue_muted">#FF5BC0DE</color>
+    <color name="green_muted">#FF5CB85C</color>
+    <color name="dusty_teal">#FF5E7D7E</color>
+    <color name="coral">#FFFF6B6B</color>
+    <color name="yellow_mustard_muted">#FFC2A84B</color>
+</resources>

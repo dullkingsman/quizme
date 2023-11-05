@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="QZColorBackground" format="reference"/>
+    <attr name="QZColorOnBackground" format="reference"/>
+    <attr name="QZColorSecondaryBackground" format="reference"/>
+    <attr name="QZColorOnSecondaryBackground" format="reference"/>
+    <attr name="QZColorSurface" format="reference"/>
+    <attr name="QZColorOnSurface" format="reference"/>
+    <attr name="QZColorPrimary" format="reference"/>
+    <attr name="QZColorOnPrimary" format="reference"/>
+    <attr name="QZColorSecondary" format="reference"/>
+    <attr name="QZColorOnSecondary" format="reference"/>
+    <attr name="QZColorAccent" format="reference"/>
+    <attr name="QZColorError" format="reference"/>
+    <attr name="QZColorWarn" format="reference"/>
+    <attr name="QZColorInfo" format="reference"/>
+    <attr name="QZColorSuccess" format="reference"/>
+</resources>
